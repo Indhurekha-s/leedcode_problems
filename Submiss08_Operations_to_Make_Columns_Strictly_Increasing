@@ -1,0 +1,15 @@
+class Solution(object):
+    def minimumOperations(self, grid):
+        """
+        :type grid: List[List[int]]
+        :rtype: int
+        """
+        a=0
+        for i in range(len(grid[0])):
+            large=grid[0][i]
+            for j in range(1,len(grid)):
+                if(large>=grid[j][i]):
+                    a=a+(large-grid[j][i]+1)
+                    grid[j][i]=large+1
+                large = grid[j][i]
+        return a
